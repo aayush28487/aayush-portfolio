@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0d0d0d;
+    color: #e8e8e8;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background: #111;
+    border-bottom: 1px solid #222;
+    color: #ccc;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: "Playwrite AU SA", cursive;
+    color: #00d4ff;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    list-style: none;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+}
+nav ul li a{
+ color: #ccc;
+ text-decoration: none;
+}
+nav ul li a:hover{
+ color: #00d4ff;
+ text-decoration: none;
+ transition: all 0.5s;
+}
+
+
+.hero {
+    background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);
+    /* height: 65vh; */
+    padding: 65px;
+    display: flex;
+    justify-content: center;
+    gap: 130px;
+    align-items: center;
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hero-left .one {
+    font-size: 50px;
+    color: #ffffff;
+    font-weight: bolder;
+}
+
+.hero-left .two {
+    font-size: 40px;
+    color: #e8e8e8;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.hero-right img {
+    border-radius: 25px;
+}
+
+.btncontainer {
+    padding: 9px 0;
+}
+
+.btn {
+    background: transparent;
+    color: #00d4ff;
+    padding: 10px 24px;
+    border: 2px solid #00d4ff;
+    border-radius: 9px;
+    cursor: pointer;
+    margin: 0 2px;
+    font-weight: bolder;
+    font-family: 'Titillium Web', sans-serif;
+    transition: all 0.25s;
+}
+
+.btn a{
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+.btn a:hover{
+    color: #0d0d0d;
+    text-decoration: none;
+    transition: all 0.25s;
+}
+.btn:hover {
+    background: #00d4ff;
+    color: #0d0d0d;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    background: #161616;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 22px 100px;
+    font-family: "Roboto", sans-serif;
+
+}
+
+.project-image img {
+    width: 29vw;
+    margin: 14px;
+
+    border-radius: 224px;
+
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    color: #aaa;
+    padding: 42px;
+}
+
+.project-info .text {
+    padding: 12px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.project-info p {
+    padding: 12px 0;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+    justify-content: left;
+
+}
+
+footer {
+    background: #111;
+    border-top: 1px solid #1a1a1a;
+    color: #444;
+    text-align: center;
+    padding: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+@media screen and (max-width:850px) {
+    nav {
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero{
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+    .hero-left{
+        align-items: center;
+         text-align: center;
+    }
+    .project{
+        padding: 1px;
+    }
+   
+}
+
+@media screen and (max-width:500px) {
+    .hero-left .one{
+        text-align: center;
+        font-size: 40px;
+    }
+     .hero-left .two{
+        text-align: center;
+        font-size: 30px;
+    }
+    .project{
+        flex-direction: column;
+    }
+    .project-image img{
+        width: 60vw;
+        margin: 15px 35px;
+    }
+    .project-info{
+        padding: 5px 30px;
+        text-align: center;
+    }
+}

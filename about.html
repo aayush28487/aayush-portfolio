@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - AayushPortfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── Reset & Base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Titillium Web', sans-serif;
+            background: #0d0d0d;
+            color: #e8e8e8;
+            min-height: 100vh;
+        }
+
+        /* ── Nav ── */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            background: #111;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playwrite AU SA', cursive;
+            font-size: 20px;
+            font-weight: bolder;
+            color: #00d4ff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            list-style: none;
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ccc;
+            transition: all 0.5s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+
+        /* ── Page Hero ── */
+        .about-hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(180deg, #111 0%, #0d0d0d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .about-hero .page-label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #00d4ff;
+            margin-bottom: 14px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.1s;
+        }
+
+        .about-hero h1 {
+            font-family: 'Titillium Web', sans-serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.15;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.25s;
+        }
+
+        .about-hero h1 span {
+            color: #00d4ff;
+        }
+
+        .about-hero .subtitle {
+            margin-top: 16px;
+            font-size: 1.05rem;
+            color: #888;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards 0.4s;
+        }
+
+        /* ── Profile Card ── */
+        .about-main {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 36px 28px;
+            text-align: center;
+            position: sticky;
+            top: 100px;
+            animation: fadeUp 0.7s ease forwards 0.3s;
+            opacity: 0;
+        }
+
+        .profile-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        .profile-card .name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .profile-card .role {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            color: #00d4ff;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        .profile-card .location {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: #00d4ff;
+            margin: 22px auto;
+            border-radius: 2px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-link:hover {
+            color: #00d4ff;
+        }
+
+        .contact-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ── About Content ── */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease forwards 0.5s;
+        }
+
+        .section-block {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 32px 36px;
+        }
+
+        .section-block h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-block h2 .icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(0, 212, 255, 0.12);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        .section-block p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.97rem;
+            font-weight: 300;
+        }
+
+        /* ── Skills Grid ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .skill-tag {
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 10px 14px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #ccc;
+            font-weight: 600;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.06);
+        }
+
+        /* ── Stat Row ── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 4px;
+        }
+
+        .stat {
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 20px 16px;
+            text-align: center;
+        }
+
+        .stat .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+            line-height: 1;
+        }
+
+        .stat .label {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        /* ── CTA ── */
+        .cta-block {
+            text-align: center;
+            padding: 28px;
+        }
+
+        .cta-block p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border: 2px solid #00d4ff;
+            border-radius: 6px;
+            background: transparent;
+            color: #00d4ff;
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: background 0.25s, color 0.25s;
+            margin: 6px;
+        }
+
+        .btn:hover {
+            background: #00d4ff;
+            color: #0d0d0d;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 0.85rem;
+            color: #444;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 60px;
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            nav { padding: 14px 24px; }
+            nav ul { gap: 18px; }
+            .about-main { grid-template-columns: 1fr; }
+            .profile-card { position: static; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .section-block { padding: 24px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">AayushPortfolio</div>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html" class="active">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="about-hero">
+        <div class="page-label">Get to know me</div>
+        <h1>About <span>Aayush</span></h1>
+        <p class="subtitle">Developer · Creator · Problem Solver</p>
+    </section>
+
+    <div class="about-main">
+
+        <!-- Left: Profile Card -->
+        <aside class="profile-card">
+            <img src="ayush.jpg.png" alt="Aayush">
+            <div class="name">Aayush</div>
+            <div class="role">&lt;Developer /&gt;</div>
+            <div class="location">📍 India</div>
+            <div class="divider"></div>
+            <div class="contact-links">
+                <a href="mailto:aayush@email.com" class="contact-link">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    aayush@email.com
+                </a>
+                <a href="https://github.com/" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.42 7.88 10.96.58.1.79-.25.79-.56v-2.01c-3.2.69-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.5 3.17-1.19 3.17-1.19.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.41.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+                    GitHub Profile
+                </a>
+                <a href="https://linkedin.com/" target="_blank" class="contact-link">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM9 17H6.5v-7H9v7zM7.75 8.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zM18 17h-2.5v-3.5c0-.96-.02-2.2-1.34-2.2-1.34 0-1.55 1.05-1.55 2.13V17H10v-7h2.4v.96h.03c.34-.64 1.15-1.31 2.37-1.31 2.54 0 3.2 1.67 3.2 3.84V17z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </aside>
+
+        <!-- Right: Content -->
+        <div class="about-content">
+
+            <!-- Who I Am -->
+            <div class="section-block">
+                <h2><span class="icon">👋</span> Who I Am</h2>
+                <p>
+                    Hi! I'm <strong style="color:#fff;">Aayush</strong>, a passionate web developer with a love for crafting clean, functional, and visually engaging digital experiences. I enjoy turning ideas into reality through code — whether that's building a sleek frontend, designing a robust backend, or connecting the two seamlessly.
+                </p>
+                <br>
+                <p>
+                    I believe great software is not just about making things work — it's about making things work <em style="color:#ccc;">beautifully</em>. I'm always learning, always building, and always looking for the next challenge that pushes my skills further.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="section-block">
+                <h2><span class="icon">📊</span> At a Glance</h2>
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="number">3+</div>
+                        <div class="label">Projects Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">2+</div>
+                        <div class="label">Years Coding</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">100%</div>
+                        <div class="label">Dedication</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="section-block">
+                <h2><span class="icon">🛠️</span> Skills & Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-tag">HTML5</div>
+                    <div class="skill-tag">CSS3</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">Node.js</div>
+                    <div class="skill-tag">Git</div>
+                    <div class="skill-tag">MySQL</div>
+                    <div class="skill-tag">REST APIs</div>
+                    <div class="skill-tag">AI / ML</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="section-block cta-block">
+                <p>Interested in working together or just want to say hi?</p>
+                <a href="/contact.html" class="btn">Contact Me</a>
+                <a href="/services.html" class="btn">View Services</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        Copyright &copy; 2027 || All rights are reserved
+    </footer>
+
+</body>
+</html>
